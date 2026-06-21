@@ -59,10 +59,6 @@ ML Project/
 ├── requirements.txt
 ├── setup.py
 └── README.md
-```
-
----
-
 ## 🛠️ Technologies Used
 
 ### Programming Language
