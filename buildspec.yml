@@ -8,7 +8,7 @@ commands:
 build:
 commands:
 - echo Build started
-- docker build -t $ImageName -f Dockerfile .
+- docker build -t $ML-Project -f Dockerfile .
 post_build:
 commands:
 - echo Build completed
