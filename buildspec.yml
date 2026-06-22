@@ -4,14 +4,19 @@ phases:
 pre_build:
 commands:
 - echo Logging in to Amazon ECR...
-- aws --version
+- aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 719484290078.dkr.ecr.ap-southeast-2.amazonaws.com
+
 build:
 commands:
-- echo Build started
-- docker build -t $ML-Project -f Dockerfile .
+- echo Build started on `date`
+- docker build -t ml-project .
+
 post_build:
 commands:
-- echo Build completed
+- echo Tagging Docker image...
+- docker tag ml-project:latest 719484290078.dkr.ecr.ap-southeast-2.amazonaws.com/ml-project:latest
+- echo Pushing Docker image...
+- docker push 719484290078.dkr.ecr.ap-southeast-2.amazonaws.com/ml-project:latest
 
 artifacts:
 files:
